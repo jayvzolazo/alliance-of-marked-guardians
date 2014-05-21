@@ -10,16 +10,33 @@ class MY_Controller extends CI_Controller{
 
     function templateLoader($contentdata){
         $script = array_pop(array_reverse($contentdata));
-		
-		$contentdata['site_title'] = $this->site_name();
 
+        $navbardata['title'] = $this->site_name();
+		
+		$templatedata['site_title'] = $this->site_name();
         $templatedata['scripts'] = (!is_null($script))? $this->page_script($script) : '';
         $templatedata['styles'] = $this->page_css($contentdata['styles']);
         $templatedata['header_elements'] = $this->header_elements();
-
+        $templatedata['breadcrumbs'] = $this->load->view('partials/breadcrumbs', NULL, TRUE);
+        $templatedata['navbar'] = $this->load->view('partials/navbar', $navbardata, TRUE);
+        $templatedata['sidebar'] = $this->load->view('partials/sidebar', NULL, TRUE);
+        $templatedata['setting_container'] = $this->load->view('partials/setting_container', NULL, TRUE);
         $templatedata['content'] = $this->load->view('template/content', $contentdata, TRUE);
 
         $this->load->view('template/main', $templatedata);
+    }
+
+    function _page_defaults($page_title, $page, $sub_page = '', $modal = NULL){
+        $pagedata['page_title'] = $page_title;
+        $pagedata['page'] = $page;
+        $pagedata['sub_page'] = $sub_page;
+        $pagedata['user'] = $this->_user;
+		//$pagedata['global_modal'] = $this->load->view('template/modals', NULL, TRUE);
+
+        if(!is_null($modal))
+            $pagedata['modal'] = $this->load->view('template/modals/'.$modal, NULL, TRUE);
+
+        return $pagedata;
     }
 
     private function header_elements(){
@@ -35,7 +52,7 @@ class MY_Controller extends CI_Controller{
 		$elems.= "<script src='".base_url('assets/js/jquery-1.10.2.js')."' type='text/javascript'></script>";
 		$elems.= "<script src='".base_url('assets/js/bootstrap.js')."' type='text/javascript'></script>";
 		$elems.= "<script src='".base_url('assets/js/ace.js')."' type='text/javascript'></script>";
-		$elems.= "<script src='".base_url('assets/js/ace-extra.min.js')."'' type='text/javascript'></script>";
+		$elems.= "<script src='".base_url('assets/js/ace-extra.min.js')."' type='text/javascript'></script>";
 		
 		$elems.= "<!--[if lt IE 9]><script src='".base_url('assets/js/html5shiv.js')."'' type='text/javascript'></script><script src='".base_url('assets/js/respond.min.js')."'' type='text/javascript'></script><![endif]-->";
 
@@ -66,19 +83,6 @@ class MY_Controller extends CI_Controller{
         }
 
         return $style;
-    }
-
-    function _page_defaults($page_title, $page, $sub_page = '', $modal = NULL){
-        $pagedata['page_title'] = $page_title;
-        $pagedata['page'] = $page;
-        $pagedata['sub_page'] = $sub_page;
-        $pagedata['user'] = $this->_user;
-		//$pagedata['global_modal'] = $this->load->view('template/modals', NULL, TRUE);
-
-        if(!is_null($modal))
-            $pagedata['modal'] = $this->load->view('template/modals/'.$modal, NULL, TRUE);
-
-        return $pagedata;
     }
 
     function site_name(){

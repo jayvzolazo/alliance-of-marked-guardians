@@ -7,12 +7,22 @@ class Page extends MY_Controller{
 	}
 	
 	public function index(){
-		$pagedata = $this->_page_defaults('', '', '');
+		$pagedata = $this->_page_defaults('Dashboard', 'dashboard', '');
 
 		$contentdata['script'] = NULL;
 		$contentdata['styles'] = NULL;
-		$contentdata['page'] = $this->load->view('pages/home', $pagedata, TRUE);
+		$contentdata['page'] = $this->load->view('pages/dashboard', $pagedata, TRUE);
 		
 		$this->templateLoader($contentdata);
 	}
+
+    public function members(){
+		$pagedata = $this->_page_defaults('Members', 'members', '');
+
+		$contentdata['script'] = NULL;
+		$contentdata['styles'] = NULL;
+		$contentdata['page'] = $this->load->view('pages/members', $pagedata, TRUE);
+		
+		$this->templateLoader($contentdata);
+    }
 }
