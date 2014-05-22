@@ -42,6 +42,13 @@
             </a>
         </li>
 
+        <li <?php echo ($page == 'chapters')? 'class="active"' : ''; ?>>
+            <a href="<?php echo site_url('page/chapters'); ?>">
+                <i class="icon-cubes"></i>
+                <span class="menu-text"> Chapters </span>
+            </a>
+        </li>
+
         <!--
         <li>
             <a href="#" class="dropdown-toggle">
