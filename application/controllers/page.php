@@ -25,4 +25,14 @@ class Page extends MY_Controller{
 		
 		$this->templateLoader($contentdata);
     }
+
+    public function chapters(){
+		$pagedata = $this->_page_defaults('Chapters', 'chapters', '');
+
+		$contentdata['script'] = NULL;
+		$contentdata['styles'] = NULL;
+		$contentdata['page'] = $this->load->view('pages/chapters', $pagedata, TRUE);
+		
+		$this->templateLoader($contentdata);
+    }
 }
