@@ -41,6 +41,8 @@
 $route['default_controller'] = "page";
 $route['404_override'] = '';
 
+$route['members/add'] = "members/add_member";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

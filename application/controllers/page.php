@@ -2,7 +2,7 @@
 
 class Page extends MY_Controller{
 	
-	public function __construct(){
+	function __construct(){
 		parent::__construct();
 	}
 	
@@ -17,7 +17,11 @@ class Page extends MY_Controller{
 	}
 
     public function members(){
+		$this->load->model('mod_members');
+		
 		$pagedata = $this->_page_defaults('Members', 'members', '');
+		
+		$pagedata['members'] = $this->mod_members->get();
 
 		$contentdata['script'] = NULL;
 		$contentdata['styles'] = NULL;

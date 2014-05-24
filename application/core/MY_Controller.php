@@ -17,7 +17,10 @@ class MY_Controller extends CI_Controller{
         $templatedata['scripts'] = (!is_null($script))? $this->page_script($script) : '';
         $templatedata['styles'] = $this->page_css($contentdata['styles']);
         $templatedata['header_elements'] = $this->header_elements();
-        $templatedata['breadcrumbs'] = $this->load->view('partials/breadcrumbs', NULL, TRUE);
+		
+		$crumbs['crumbs'] = $this->get_crumbs();
+        $templatedata['breadcrumbs'] = $this->load->view('partials/breadcrumbs', $crumbs, TRUE);
+		
         $templatedata['navbar'] = $this->load->view('partials/navbar', $navbardata, TRUE);
         $templatedata['sidebar'] = $this->load->view('partials/sidebar', NULL, TRUE);
         $templatedata['setting_container'] = $this->load->view('partials/setting_container', NULL, TRUE);
@@ -38,23 +41,41 @@ class MY_Controller extends CI_Controller{
 
         return $pagedata;
     }
+	
+	private function get_crumbs(){
+		$raw_uri = $_SERVER['REQUEST_URI'];
+		$arr_uri = explode("/", $raw_uri);
+		$data = '';
+		
+		foreach($arr_uri as $crumb){
+			if($crumb){
+				if($crumb != 'amg' && $crumb != 'page'){
+					$data.= "<li>".ucwords($crumb)."</li>";
+				}
+			}
+		}
+		
+		return $data;
+	}
 
     private function header_elements(){
         $elems = "<link href='".base_url('assets/css/template.css')."' rel='stylesheet' />";
-		$elems.= "<link href='".base_url('assets/css/bootstrap.css')."' rel='stylesheet' />";
-		$elems.= "<link href='".base_url('assets/css/font-awesome.css')."' rel='stylesheet'>";
-		$elems.= "<!--[if lte IE 8]><link href='".base_url('assets/css/ace-ie.min.css')."' rel='stylesheet' /><![endif]-->";
+		$elems.= "<link href='".base_url('assets/css/bootstrap.min.css')."' rel='stylesheet' />\n";
+		$elems.= "<link href='".base_url('assets/css/font-awesome.min.css')."' rel='stylesheet'>\n";
 		
-		$elems.= "<link href='".base_url('assets/css/ace.min.css')."' rel='stylesheet'/>";
-		$elems.= "<link href='".base_url('assets/css/ace-rtl.min.css')."' rel='stylesheet'/>";
-		$elems.= "<link href='".base_url('assets/css/ace-skins.min.css')."' rel='stylesheet'/>";
+		$elems.= "<link href='".base_url('assets/css/ionicons.min.css')."' rel='stylesheet'/>\n";
+		//$elems.= "<link href='".base_url('assets/css/morris/morris.css')."' rel='stylesheet'/>";
+		//$elems.= "<link href='".base_url('assets/css/fullcalendar/fullcalendar.css')."' rel='stylesheet'/>";
 		
-		$elems.= "<script src='".base_url('assets/js/jquery-1.10.2.js')."' type='text/javascript'></script>";
-		$elems.= "<script src='".base_url('assets/js/bootstrap.js')."' type='text/javascript'></script>";
-		$elems.= "<script src='".base_url('assets/js/ace.js')."' type='text/javascript'></script>";
-		$elems.= "<script src='".base_url('assets/js/ace-extra.min.js')."' type='text/javascript'></script>";
+		//$elems.= "<link href='".base_url('assets/css/daterangepicker/daterangepicker-bs3.css')."' rel='stylesheet'/>";
+		//$elems.= "<link href='".base_url('assets/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')."' rel='stylesheet'/>";
+		$elems.= "<link href='".base_url('assets/css/AdminLTE.css')."' rel='stylesheet'/>\n";
 		
-		$elems.= "<!--[if lt IE 9]><script src='".base_url('assets/js/html5shiv.js')."'' type='text/javascript'></script><script src='".base_url('assets/js/respond.min.js')."'' type='text/javascript'></script><![endif]-->";
+		$elems.= "<script src='".base_url('assets/js/jquery.min.js')."' type='text/javascript'></script>\n";
+		$elems.= "<script src='".base_url('assets/js/bootstrap.min.js')."' type='text/javascript'></script>\n";
+		$elems.= "<script src='".base_url('assets/js/AdminLTE/app.js')."' type='text/javascript'></script>\n";
+		/* $elems.= "<script src='".base_url('assets/js/AdminLTE/dashboard.js')."' type='text/javascript'></script>\n"; */
+		
 
         return $elems;
     }
@@ -65,7 +86,7 @@ class MY_Controller extends CI_Controller{
 
         for($i = 0; $i < $count; ++$i){
             if($script[$i] != ""){
-                $scripts.= "<script type='text/javascript' src='".base_url('assets/js/page/'.$script[$i].'js')."'></script>\n\t";
+                $scripts.= "<script type='text/javascript' src='".base_url('assets/js/'.$script[$i])."'></script>\n\t";
             }
         }
 
@@ -78,7 +99,7 @@ class MY_Controller extends CI_Controller{
 
         for($i = 0; $i < $count; ++$i){
             if($css[$i] != ""){
-                $style.= "<link rel='stylesheet' href='".base_url('assets/css/page/'.$css[$i].'.css')."' />\n\t";
+                $style.= "<link rel='stylesheet' href='".base_url('assets/css/'.$css[$i])."' />\n\t";
             }
         }
 
