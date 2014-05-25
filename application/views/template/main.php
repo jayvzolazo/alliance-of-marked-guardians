@@ -7,7 +7,7 @@
     <?php echo (isset($styles) || !is_null($styles))? $styles : '';?>
     <title><?php echo $site_title; ?></title>
     </head>
-    <body class="skin-blue">
+    <body class="skin-blue fixed">
         <?php echo $navbar; ?>
     
     	<div class="wrapper row-offcanvas row-offcanvas-left">

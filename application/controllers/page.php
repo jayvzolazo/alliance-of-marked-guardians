@@ -4,11 +4,13 @@ class Page extends MY_Controller{
 	
 	function __construct(){
 		parent::__construct();
+		
+		if(!$this->is_logged_in()) redirect(site_url());
 	}
 	
-	public function index(){
+	public function dashboard(){
 		$pagedata = $this->_page_defaults('Dashboard', 'dashboard', '');
-
+		
 		$contentdata['script'] = NULL;
 		$contentdata['styles'] = NULL;
 		$contentdata['page'] = $this->load->view('pages/dashboard', $pagedata, TRUE);

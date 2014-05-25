@@ -6,6 +6,8 @@ class MY_Controller extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
+		
+		if($this->is_logged_in()) $this->_loggedUserDetails();
     }
 
     function templateLoader($contentdata){
@@ -61,21 +63,21 @@ class MY_Controller extends CI_Controller{
     private function header_elements(){
         $elems = "<link href='".base_url('assets/css/template.css')."' rel='stylesheet' />";
 		$elems.= "<link href='".base_url('assets/css/bootstrap.min.css')."' rel='stylesheet' />\n";
-		$elems.= "<link href='".base_url('assets/css/font-awesome.min.css')."' rel='stylesheet'>\n";
+		$elems.= "<link href='".base_url('assets/css/font-awesome.min.css')."' rel='stylesheet' />\n";
+		$elems.= "<link href='".base_url('assets/css/AdminLTE.css')."' rel='stylesheet'/>\n";
 		
-		$elems.= "<link href='".base_url('assets/css/ionicons.min.css')."' rel='stylesheet'/>\n";
 		//$elems.= "<link href='".base_url('assets/css/morris/morris.css')."' rel='stylesheet'/>";
 		//$elems.= "<link href='".base_url('assets/css/fullcalendar/fullcalendar.css')."' rel='stylesheet'/>";
 		
 		//$elems.= "<link href='".base_url('assets/css/daterangepicker/daterangepicker-bs3.css')."' rel='stylesheet'/>";
 		//$elems.= "<link href='".base_url('assets/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')."' rel='stylesheet'/>";
-		$elems.= "<link href='".base_url('assets/css/AdminLTE.css')."' rel='stylesheet'/>\n";
+		$elems.= "<link href='".base_url('assets/css/ionicons.min.css')."' rel='stylesheet'/>\n";
 		
 		$elems.= "<script src='".base_url('assets/js/jquery.min.js')."' type='text/javascript'></script>\n";
 		$elems.= "<script src='".base_url('assets/js/bootstrap.min.js')."' type='text/javascript'></script>\n";
 		$elems.= "<script src='".base_url('assets/js/AdminLTE/app.js')."' type='text/javascript'></script>\n";
 		/* $elems.= "<script src='".base_url('assets/js/AdminLTE/dashboard.js')."' type='text/javascript'></script>\n"; */
-		
+		$elems.= "<script type='text/javascript'>var site_url = '".site_url()."';</script>";
 
         return $elems;
     }
@@ -143,5 +145,24 @@ class MY_Controller extends CI_Controller{
 		}
 		
 		return FALSE;
+	}
+	
+	function auth($data){
+		unset($data['password']);
+		
+		$this->session->set_userdata($data);
+	}
+	
+	function is_logged_in(){
+		if($this->session->userdata('username')){
+            return TRUE;
+        }
+
+        return FALSE;
+	}
+	
+	function _loggedUserDetails(){
+		$this->load->model('mod_login');
+		$this->_user = $this->mod_login->getUserDetails($this->session->userdata('username'));
 	}
 }

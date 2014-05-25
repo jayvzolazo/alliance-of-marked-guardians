@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '5poCQy59E9LBu1KQ8wq7cBJ2Pxp3RBz9';
+$config['encryption_key'] = 'UErVh62P1G3KQos8M7jHF6EguAyLOvxV';
 
 /*
 |--------------------------------------------------------------------------
@@ -279,7 +279,7 @@ $config['cookie_secure']	= FALSE;
 | COOKIE data is encountered
 |
 */
-$config['global_xss_filtering'] = FALSE;
+$config['global_xss_filtering'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

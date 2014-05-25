@@ -38,10 +38,11 @@
 |
 */
 
-$route['default_controller'] = "page";
+$route['default_controller'] = "login";
 $route['404_override'] = '';
 
 $route['members/add'] = "members/add_member";
+$route['logout'] = "login/logout";
 
 
 /* End of file routes.php */

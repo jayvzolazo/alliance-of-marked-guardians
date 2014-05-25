@@ -14,6 +14,7 @@
     
     <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-default" onclick="window.location = '<?php echo site_url('page/members'); ?>'">Cancel</button>
     </div>
     <?php echo form_close(); ?>
 </div>
