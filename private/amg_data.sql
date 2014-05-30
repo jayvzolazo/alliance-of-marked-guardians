@@ -31,6 +31,15 @@ CREATE TABLE `chapters` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `chapters`
+--
+
+LOCK TABLES `chapters` WRITE;
+/*!40000 ALTER TABLE `chapters` DISABLE KEYS */;
+/*!40000 ALTER TABLE `chapters` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `member_chapter_position`
 --
 
@@ -46,6 +55,15 @@ CREATE TABLE `member_chapter_position` (
   PRIMARY KEY (`mcp_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `member_chapter_position`
+--
+
+LOCK TABLES `member_chapter_position` WRITE;
+/*!40000 ALTER TABLE `member_chapter_position` DISABLE KEYS */;
+/*!40000 ALTER TABLE `member_chapter_position` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `members`
@@ -93,6 +111,15 @@ CREATE TABLE `members` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `members`
+--
+
+LOCK TABLES `members` WRITE;
+/*!40000 ALTER TABLE `members` DISABLE KEYS */;
+/*!40000 ALTER TABLE `members` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `members_children`
 --
 
@@ -107,6 +134,15 @@ CREATE TABLE `members_children` (
   PRIMARY KEY (`mc_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `members_children`
+--
+
+LOCK TABLES `members_children` WRITE;
+/*!40000 ALTER TABLE `members_children` DISABLE KEYS */;
+/*!40000 ALTER TABLE `members_children` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `members_other_info`
@@ -138,6 +174,15 @@ CREATE TABLE `members_other_info` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `members_other_info`
+--
+
+LOCK TABLES `members_other_info` WRITE;
+/*!40000 ALTER TABLE `members_other_info` DISABLE KEYS */;
+/*!40000 ALTER TABLE `members_other_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `rank`
 --
 
@@ -151,6 +196,15 @@ CREATE TABLE `rank` (
   PRIMARY KEY (`rank_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rank`
+--
+
+LOCK TABLES `rank` WRITE;
+/*!40000 ALTER TABLE `rank` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rank` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
@@ -169,8 +223,18 @@ CREATE TABLE `users` (
   `creation_date` datetime NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (2,'bertolazo','dfe74cac7654a17b5b717091daec8b2693fe03e1','Bert Olazo','email@domain.com',1,'2014-05-25 00:00:00',1);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -181,4 +245,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-30 10:37:53
+-- Dump completed on 2014-05-30 10:40:59
