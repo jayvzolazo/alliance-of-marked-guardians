@@ -2,25 +2,26 @@
     <div class="box-header">
         <h3 class="box-title">Member Information</h3>
     </div>
+    <span class="label label-info"><i class="fa fa-asterisk"></i> - required</span>
     
     <div class="box-body clearfix">
         <div class="col-md-6">
             <div class="form-group">
-                <label>Chapter</label>
+                <label>Chapter *</label>
                 <input type="text" class="form-control" placeholder="Chapter name" tabindex="1" autofocus />
             </div>
             
             <div class="row">
             	<div class="col-md-6">
                     <div class="form-group">
-                        <label>Rank / Pseudonym</label>
+                        <label>Rank / Pseudonym *</label>
                         <input type="text" class="form-control" placeholder="Rank / Pseudonym" tabindex="2" />
                     </div>
                 </div>
                 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Position</label>
+                        <label>Position *</label>
                         <input type="text" class="form-control" placeholder="Position"  tabindex="3" />
                     </div>
                 </div>
@@ -29,28 +30,28 @@
             <div class="row">
             	<div class="col-md-4">
                     <div class="form-group">
-                        <label>First Name</label>
+                        <label>First Name *</label>
                         <input type="text" class="form-control" placeholder="First name"  tabindex="4" />
                     </div>
                 </div>
                 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label>Middle Name</label>
+                        <label>Middle Name *</label>
                         <input type="text" class="form-control" placeholder="Middle name"  tabindex="5" />
                     </div>
                 </div>
                 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label>Last Name</label>
+                        <label>Last Name *</label>
                         <input type="text" class="form-control" placeholder="Last name"  tabindex="6" />
                     </div>
                 </div>
             </div> <!-- name -->
             
             <div class="form-group">
-                <label>Address</label>
+                <label>Address *</label>
                 <input type="text" class="form-control" placeholder="Address" tabindex="7" />
             </div><!-- address -->
             
@@ -85,7 +86,7 @@
                 
                 <div class="col-md-6">
                      <div class="form-group">
-                        <label>Date of Birth</label>
+                        <label>Date of Birth *</label>
                         <input type="text" class="form-control" id="birthdate" data-inputmask="'alias': 'yyyy-mm-dd'" tabindex="12" />
                     </div><!-- birthdate -->
                 </div>
@@ -94,7 +95,7 @@
             <div class="row">
             	<div class="col-md-6">
                      <div class="form-group">
-                        <label>Nationality</label>
+                        <label>Nationality *</label>
                         <input type="text" class="form-control" placeholder="Nationality" tabindex="13" />
                     </div><!-- nationality -->
                 </div>
@@ -126,7 +127,7 @@
             <div class="row">
             	<div class="col-md-6">
                     <div class="form-group">
-                        <label>Gender</label>
+                        <label>Gender *</label>
                         <select class="form-control" tabindex="17">
                             <option value=""></option>
                             <option value="Male">Male</option>
@@ -155,7 +156,7 @@
             <div class="row">
             	<div class="col-md-6">
                     <div class="form-group">
-                        <label>Marital Status</label>
+                        <label>Marital Status *</label>
                         <select class="form-control" tabindex="20">
                             <option value=""></option>
                             <option value="Male">Single</option>
@@ -178,7 +179,7 @@
         
         <div class="col-md-6">
         	<div class="form-group">
-                <label for="profile-picture">Profile Picture</label>
+                <label for="profile-picture">Profile Picture *</label>
                 <div class="fileupload-container">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                         <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
