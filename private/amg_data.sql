@@ -232,7 +232,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (2,'bertolazo','dfe74cac7654a17b5b717091daec8b2693fe03e1','Bert Olazo','email@domain.com',1,'2014-05-25 00:00:00',1);
+INSERT INTO `users` VALUES (1,'bertolazo','dfe74cac7654a17b5b717091daec8b2693fe03e1','Bert Olazo','email@domain.com',1,'2014-05-25 00:00:00',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -245,4 +245,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-30 10:40:59
+-- Dump completed on 2014-05-30 10:49:55
